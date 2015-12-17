@@ -4743,4 +4743,11 @@ a.bg-danger:focus, a.bg-danger:hover {
   .hidden-print {
     display: none !important; } }
 
+.card {
+  background: #000; }
+  .card pre {
+    margin-bottom: 0; }
+    .card pre code {
+      color: #fff; }
+
 /*# sourceMappingURL=main.css.map */

@@ -1,20 +1,131 @@
+
 <!doctype html>
 <html>
     <head>
+        <title>BrowserFeatures.io | The API for getting browser feature support for your site</title>
         <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>BrowserFeatures.io</title>
-        <meta name="description" content="Whitelabel is a front-end CSS framework for building responsive, mobile first websites.">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link rel="stylesheet" href="css/main.css">
+        <link href="css/main.css" rel="stylesheet">
     </head>
     <body>
-        <header class="navbar">
-            <div class="container">
-                <h1>BrowserFeatures.io</h1>
-            </div>
+        <header>
+            <nav class="navbar navbar-dark bg-primary navbar-static-top">
+                <div class="container">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#api">API</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Embeds</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </header>
+        
+        <section class="jumbotron">
+            <div class="container">            
+                <h2 class="display-4">BrowserFeatures.io</h2>
+                <p class="lead">Community project to provide an API to enable you to include browser feature information in your webpages.</p>
+            </div>
+        </section>
+
+        <div class="container" id="api">
+            <h2>API</h2>
+
+            <h3>/v1/feature/:feature-name</h3>
+
+            <p>Retrieve data for a given feature</p>
+
+            <p>Example Request: http://127.0.0.1:9000/v1/feature/border-radius </p>
+
+<div class="card"><div class="card-block"><pre><code>{
+    "name": "border-radius",
+    "browsers": {
+        "and_chr": {
+            "y": 46
+        },
+        "and_uc": {
+            "y": 9.9
+        },
+        "android": {
+            "y": 2.1,
+            "x": 2.1
+        },
+        "chrome": {
+            "y": 4,
+            "x": 4
+        },
+        "edge": {
+            "y": 12
+        },
+        "firefox": {
+            "a": 2,
+            "x": 3.6,
+            "y": 3
+        },
+        "ie": {
+            "n": 8,
+            "y": 9
+        },
+        "ie_mob": {
+            "y": 10
+        },
+        "ios_saf": {
+            "y": 3.2,
+            "x": 3.2
+        },
+        "op_mini": {
+            "n": 5
+        },
+        "opera": {
+            "n": 10,
+            "y": 10.5
+        },
+        "safari": {
+            "y": 3.1,
+            "x": 4,
+            "#1": 6.1
+        }
+    },
+    "attribution": "Licensed under CC BY 4.0 license from caniuse.com"
+}</code></pre></div></div>
+
+<p>If no API is found suggestions will be offered</p>
+
+<p>Example of a failed request: http://127.0.0.1:9000/v1/feature/border</p>
+
+<div class="card"><div class="card-block"><pre><code>{
+    "error": "api not found",
+    "suggestions": ["border-image", "border-radius"]
+}</code></pre></div></div>
+
+            <h3>/v1/browser/stable</h3>
+
+            <p>Get a list of the latest stable browsers</p>
+
+<div class="card"><div class="card-block"><pre><code>{
+    "browsers": {
+        "chrome": "47",
+        "edge": "13",
+        "ie": "11",
+        "ie_mob": "11",
+        "ios_saf": "9.0",
+        "firefox": "42",
+        "opera": "33",
+        "safari": "9"
+    },
+    "attribution": "Licensed under CC BY 4.0 license from caniuse.com"
+}</code></pre></div></div>
+
+        </div>
+
+
+        <footer>
+            <div class="container">
+               <p>BrowserFeatures.io uses data licenced from <a href="http://www.caniuse.com">caniuse.com</a> under CC BY 4.0 license</p>
+            </div>
+        </footer>
     </body>
 </html>
