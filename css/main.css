@@ -4762,4 +4762,10 @@ pre {
     .card pre code {
       color: #fff; }
 
+.page-footer {
+  background: #333;
+  color: #fff;
+  overflow: hidden;
+  padding: 20px 0 5px; }
+
 /*# sourceMappingURL=main.css.map */
