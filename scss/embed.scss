@@ -4,3 +4,16 @@
 
 // Reset and dependencies
 @import "normalize";
+
+
+
+.embed-header {
+	background: $brand-primary;
+	padding: 5px;
+
+	&__title {
+		margin: 0;
+		color: $gray-lightest;
+		font-size: 18px;
+	}
+}

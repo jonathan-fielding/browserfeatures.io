@@ -177,4 +177,12 @@ td,
 th {
   padding: 0; }
 
+.embed-header {
+  background: #0275d8;
+  padding: 5px; }
+  .embed-header__title {
+    margin: 0;
+    color: #f7f7f9;
+    font-size: 18px; }
+
 /*# sourceMappingURL=embed.css.map */
