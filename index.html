@@ -34,6 +34,19 @@
             <h2>Embed</h2>
 
             <p>BrowserFeatures.io enables websites to embed browser feature information into their site</p>
+            
+
+            <script>
+                (function(window,document,tag,id){window[id]||(window[id]=1)&&(function(s){
+                        var element=document.createElement(tag);
+                        var s=document.getElementsByTagName(tag)[0];
+                        element.async=1;
+                        element.src='/script/embed.js';
+                        s.parentNode.insertBefore(element,s);
+                    })()
+                })(window,document,'script','__bfEmbed__');
+            </script>
+            <a href="/iframe-embed.html?feature=border-radius" class="__bfEmbed__">Border Radius information</a>
         </div>
 
         <hr>
