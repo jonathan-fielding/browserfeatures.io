@@ -5,15 +5,52 @@
 // Reset and dependencies
 @import "normalize";
 
-
+* {
+	box-sizing: border-box;
+}
 
 .embed-header {
-	background: $brand-primary;
-	padding: 5px;
+	background: $gray-dark;
+	padding: 10px;
 
 	&__title {
 		margin: 0;
 		color: $gray-lightest;
 		font-size: 18px;
+	}
+}
+
+.supported-browsers {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+		float: left;
+		padding: 5px;
+		width: 11.1111%;
+		text-align: center;
+
+		&:nth-child(even) {
+			background: #CCC
+		}
+
+		&:nth-child(odd) {
+			background: #999
+		}
+
+		h2 {
+			font-size: 16px;
+			margin: 0;
+			display: none;
+		}
+
+		p {
+			margin: 0;
+		}
+
+		img {
+			max-width: 100%;
+		}
 	}
 }

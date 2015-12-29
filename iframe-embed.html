@@ -9,54 +9,69 @@
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch"></script>
     </head>
     <body>
-        <div class="page-container" style="background: red; height: 800px;">
+        <div class="page-container">
             <header class="embed-header">
                 <h1 class="embed-header__title">border-radius support</h1>
             </header>
 
-            <table>
-                <tr>
-                    <th colspan="10"></h1></th>
-                </tr>
-                <tr>
-                    <th>Chrome</th>
-                    <th>Android Chrome</th>
-                    <th>Firefox</th>
-                    <th>Internet Explorer</th>
-                    <th>Internet Explorer Mobile</th>
-                    <th>Edge</th>
-                    <th>Safari</th>
-                    <th>iOS Safari</th>
-                    <th>Opera</th>
-                    <th>Opera Mini</th>
-                </tr>
-                <tr>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                </tr>
-            </table>
+            <div class="embed-body">
+                <ul class="supported-browsers">
+                    <li>
+                        <img src="images/chrome/chrome_128x128.png" />
+                        <h2>Chrome</h2>
+                        <p>Yes</p>
+                    </li>
+                    <li>
+                        <img src="images/chrome-android/chrome-android_128x128.png" />
+                        <h2>Android Chrome</h2>
+                        <p>Yes</p>
+                    </li>
+                    <li>
+                        <img src="images/firefox/firefox_128x128.png" />
+                        <h2>Firefox</h2>
+                        <p>Yes</p>
+                    </li>
+                    <li>
+                        <img src="images/internet-explorer/internet-explorer_128x128.png" />
+                        <h2>Internet Explorer</h2>
+                        <p>Yes</p>
+                    </li>
+                    <li>
+                        <img src="images/edge/edge_128x128.png" />
+                        <h2>Edge</h2>
+                        <p>Yes</p>
+                    </li>
+                    <li>
+                        <img src="images/safari/safari_128x128.png" />
+                        <h2>Safari</h2>
+                        <p>Yes</p>
+                    </li>
+                    <li>
+                        <img src="images/safari-ios/safari-ios_128x128.png" />
+                        <h2>iOS Safari</h2>
+                        <p>Yes</p>
+                    </li>
+                    <li>
+                        <img src="images/opera/opera_128x128.png" />
+                        <h2>Opera</h2>
+                        <p>Yes</p>
+                    </li>
+                    <li>
+                        <img src="images/opera-mini/opera-mini_128x128.png" />
+                        <h2>Opera Mini</h2>
+                        <p>Yes</p>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <script>
             (function(){
-                function getParameterByName(name) {
-                    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-                    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                    results = regex.exec(location.search);
-                    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-                }
-
                 var feature = getParameterByName('feature');
                 var browsers = getParameterByName('browsers');
                 var iframeId = getParameterByName('id');
+                var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+                var eventer = window[eventMethod];
 
                 if (feature) {
                     fetch('//api.browserfeatures.io/v1/feature/' + feature, {
@@ -69,6 +84,19 @@
                 }
 
                 if (window.parent) {
+                    setHeight();
+                }
+
+                eventer('resize', setHeight);
+
+                function getParameterByName(name) {
+                    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+                    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+                }
+
+                function setHeight() {
                     window.parent.postMessage(JSON.stringify({
                         id: iframeId,
                         height: document.documentElement.offsetHeight
