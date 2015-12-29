@@ -9,7 +9,7 @@
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch"></script>
     </head>
     <body>
-        <div class="page-container">
+        <div class="page-container" style="background: red; height: 800px;">
             <header class="embed-header">
                 <h1 class="embed-header__title">border-radius support</h1>
             </header>
@@ -46,25 +46,35 @@
         </div>
 
         <script>
-            function getParameterByName(name) {
-                name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                results = regex.exec(location.search);
-                return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-            }
+            (function(){
+                function getParameterByName(name) {
+                    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+                    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+                }
 
-            var feature = getParameterByName('feature');
-            var browsers = getParameterByName('browsers');
+                var feature = getParameterByName('feature');
+                var browsers = getParameterByName('browsers');
+                var iframeId = getParameterByName('id');
 
-            if (feature) {
-                fetch('//api.browserfeatures.io/v1/feature/' + feature, {
-                    method: 'get'
-                }).then(function(response){
-                    return response.json();
-                }).then(function(json) {
-                    console.log(json); 
-                });
-            }
+                if (feature) {
+                    fetch('//api.browserfeatures.io/v1/feature/' + feature, {
+                        method: 'get'
+                    }).then(function(response){
+                        return response.json();
+                    }).then(function(json) {
+                        console.log(json); 
+                    });
+                }
+
+                if (window.parent) {
+                    window.parent.postMessage(JSON.stringify({
+                        id: iframeId,
+                        height: document.documentElement.offsetHeight
+                    }), '*');
+                }
+            })();
 
         </script>
     </body>
