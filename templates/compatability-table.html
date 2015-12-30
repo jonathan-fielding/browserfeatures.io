@@ -8,7 +8,7 @@
             <li>
                 <img src="images/chrome/chrome_128x128.png" />
                 <h2>Chrome</h2>
-                {#browsers.chrome.supported}}
+                {{#browsers.chrome.supported}}
                     <p>{{browsers.chrome.since}}</p>
                 {{/browsers.chrome.supported}}
                 {{^browsers.chrome.supported}}
@@ -18,7 +18,7 @@
             <li>
                 <img src="images/chrome-android/chrome-android_128x128.png" />
                 <h2>Android Chrome</h2>
-                {#browsers.and_chr.supported}}
+                {{#browsers.and_chr.supported}}
                     <p>{{browsers.and_chr.since}}</p>
                 {{/browsers.and_chr.supported}}
                 {{^browsers.and_chr.supported}}
@@ -28,7 +28,7 @@
             <li>
                 <img src="images/firefox/firefox_128x128.png" />
                 <h2>Firefox</h2>
-                {#browsers.firefox.supported}}
+                {{#browsers.firefox.supported}}
                     <p>{{browsers.firefox.since}}</p>
                 {{/browsers.firefox.supported}}
                 {{^browsers.firefox.supported}}
@@ -38,7 +38,7 @@
             <li>
                 <img src="images/internet-explorer/internet-explorer_128x128.png" />
                 <h2>Internet Explorer</h2>
-                {#browsers.ie.supported}}
+                {{#browsers.ie.supported}}
                     <p>{{browsers.ie.since}}</p>
                 {{/browsers.ie.supported}}
                 {{^browsers.ie.supported}}
@@ -48,7 +48,7 @@
             <li>
                 <img src="images/edge/edge_128x128.png" />
                 <h2>Edge</h2>
-                {#browsers.edge.supported}}
+                {{#browsers.edge.supported}}
                     <p>{{browsers.edge.since}}</p>
                 {{/browsers.edge.supported}}
                 {{^browsers.edge.supported}}
@@ -58,7 +58,7 @@
             <li>
                 <img src="images/safari/safari_128x128.png" />
                 <h2>Safari</h2>
-                {#browsers.safari.supported}}
+                {{#browsers.safari.supported}}
                     <p>{{browsers.safari.since}}</p>
                 {{/browsers.safari.supported}}
                 {{^browsers.safari.supported}}
@@ -68,7 +68,7 @@
             <li>
                 <img src="images/safari-ios/safari-ios_128x128.png" />
                 <h2>iOS Safari</h2>
-                {#browsers.ios_saf.supported}}
+                {{#browsers.ios_saf.supported}}
                     <p>{{browsers.ios_saf.since}}</p>
                 {{/browsers.ios_saf.supported}}
                 {{^browsers.ios_saf.supported}}
@@ -78,7 +78,7 @@
             <li>
                 <img src="images/opera/opera_128x128.png" />
                 <h2>Opera</h2>
-                {#browsers.opera.supported}}
+                {{#browsers.opera.supported}}
                     <p>{{browsers.opera.since}}</p>
                 {{/browsers.opera.supported}}
                 {{^browsers.opera.supported}}
@@ -97,4 +97,7 @@
             </li>
         </ul>
     </div>
+    <footer class="embed-footer">
+        <p><a href="https://www.browserfeatures.io">BrowserFeatures.io</a> embed using data {{attribution}}</p>
+    </footer>
 </div>

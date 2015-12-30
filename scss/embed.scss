@@ -20,10 +20,26 @@
 	}
 }
 
+.embed-footer {
+	background: $gray-dark;
+	padding: 10px;
+	color: $gray-light;
+
+	p {
+		margin: 0;
+		font-size: 12px;
+	}
+
+	a {
+		color: $gray-light;
+	}
+}
+
 .supported-browsers {
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	overflow: hidden;
 
 	li {
 		float: left;
