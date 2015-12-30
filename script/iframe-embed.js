@@ -11,7 +11,6 @@ if (feature) {
     }).then(function(response){
         return response.json();
     }).then(function(json) {
-        console.log(json);
         document.getElementById('main').innerHTML = tableTemplate.render(json);
         setHeight();
     });
