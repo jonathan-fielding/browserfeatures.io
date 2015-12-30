@@ -1,0 +1,100 @@
+<div class="page-container">
+    <header class="embed-header">
+        <h1 class="embed-header__title">{{name}}</h1>
+    </header>
+
+    <div class="embed-body">
+        <ul class="supported-browsers">
+            <li>
+                <img src="images/chrome/chrome_128x128.png" />
+                <h2>Chrome</h2>
+                {#browsers.chrome.supported}}
+                    <p>{{browsers.chrome.since}}</p>
+                {{/browsers.chrome.supported}}
+                {{^browsers.chrome.supported}}
+                    <p>No</p>
+                {{/browsers.chrome.supported}}
+            </li>
+            <li>
+                <img src="images/chrome-android/chrome-android_128x128.png" />
+                <h2>Android Chrome</h2>
+                {#browsers.and_chr.supported}}
+                    <p>{{browsers.and_chr.since}}</p>
+                {{/browsers.and_chr.supported}}
+                {{^browsers.and_chr.supported}}
+                    <p>No</p>
+                {{/browsers.and_chr.supported}}
+            </li>
+            <li>
+                <img src="images/firefox/firefox_128x128.png" />
+                <h2>Firefox</h2>
+                {#browsers.firefox.supported}}
+                    <p>{{browsers.firefox.since}}</p>
+                {{/browsers.firefox.supported}}
+                {{^browsers.firefox.supported}}
+                    <p>No</p>
+                {{/browsers.firefox.supported}}
+            </li>
+            <li>
+                <img src="images/internet-explorer/internet-explorer_128x128.png" />
+                <h2>Internet Explorer</h2>
+                {#browsers.ie.supported}}
+                    <p>{{browsers.ie.since}}</p>
+                {{/browsers.ie.supported}}
+                {{^browsers.ie.supported}}
+                    <p>No</p>
+                {{/browsers.ie.supported}}
+            </li>
+            <li>
+                <img src="images/edge/edge_128x128.png" />
+                <h2>Edge</h2>
+                {#browsers.edge.supported}}
+                    <p>{{browsers.edge.since}}</p>
+                {{/browsers.edge.supported}}
+                {{^browsers.edge.supported}}
+                    <p>No</p>
+                {{/browsers.edge.supported}}
+            </li>
+            <li>
+                <img src="images/safari/safari_128x128.png" />
+                <h2>Safari</h2>
+                {#browsers.safari.supported}}
+                    <p>{{browsers.safari.since}}</p>
+                {{/browsers.safari.supported}}
+                {{^browsers.safari.supported}}
+                    <p>No</p>
+                {{/browsers.safari.supported}}
+            </li>
+            <li>
+                <img src="images/safari-ios/safari-ios_128x128.png" />
+                <h2>iOS Safari</h2>
+                {#browsers.ios_saf.supported}}
+                    <p>{{browsers.ios_saf.since}}</p>
+                {{/browsers.ios_saf.supported}}
+                {{^browsers.ios_saf.supported}}
+                    <p>No</p>
+                {{/browsers.ios_saf.supported}}
+            </li>
+            <li>
+                <img src="images/opera/opera_128x128.png" />
+                <h2>Opera</h2>
+                {#browsers.opera.supported}}
+                    <p>{{browsers.opera.since}}</p>
+                {{/browsers.opera.supported}}
+                {{^browsers.opera.supported}}
+                    <p>No</p>
+                {{/browsers.opera.supported}}
+            </li>
+            <li>
+                <img src="images/opera-mini/opera-mini_128x128.png" />
+                <h2>Opera Mini</h2>
+                {{#browsers.op_mini.supported}}
+                    <p>{{browsers.op_mini.since}}</p>
+                {{/browsers.op_mini.supported}}
+                {{^browsers.op_mini.supported}}
+                    <p>No</p>
+                {{/browsers.op_mini.supported}}
+            </li>
+        </ul>
+    </div>
+</div>
