@@ -1,5 +1,7 @@
 'use strict';
 
+var embedTemplate = require('../templates/embed-code.html');
+
 fetch('//api.browserfeatures.io/v1/feature', {
     method: 'get'
 }).then(function(response){
@@ -13,6 +15,15 @@ fetch('//api.browserfeatures.io/v1/feature', {
 		element.appendChild(textnode); 
         element.value=feature;
 
-        selectBox.appendChild(element)
+        selectBox.appendChild(element);
+    });
+
+    selectBox.addEventListener('change', function(e){
+        var embedCode = document.getElementById('embed-code');
+
+        embedCode.value = embedTemplate.render({
+            selected: this.value
+        });
     });
 });
+

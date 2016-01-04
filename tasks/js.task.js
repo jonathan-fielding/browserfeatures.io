@@ -22,18 +22,34 @@ module.exports = {
             dest: 'iframe-embed.min.js'
         });
     },
-    browserifyBundle: function(){
-        return browserifyBundle(false)
+    browserifyBundleApp: function(){
+        return browserifyBundle({
+            watch: false, 
+            src: './script/app.js',
+            dest: 'app.min.js'
+        });
     },
-    watchifyBundle: function(){
-        return browserifyBundle(true)
+    watchifyBundleEmbed: function(){
+        return browserifyBundle({
+            watch: true, 
+            src: './script/iframe-embed.js',
+            dest: 'iframe-embed.min.js'
+        });
+    },
+    watchifyBundleApp: function(){
+        return browserifyBundle({
+            watch: true, 
+            src: './script/app.js',
+            dest: 'app.min.js'
+        });
     }
 };
 
-function browserifyBundle(watch) {
+function browserifyBundle(settings) {
+    var watch = settings.watch;
 
     var opts = assign({}, watchify.args, {
-        entries: ['./script/iframe-embed.js'],
+        entries: [settings.src],
         minify: true
     });
 
@@ -58,14 +74,14 @@ function browserifyBundle(watch) {
 
     b.on('log', gutil.log); // output build logs to terminal
 
-    return bundle(b);
+    return bundle(b, settings.dest);
 }
 
-function bundle(b) {
+function bundle(b, dest) {
     return b.bundle()
         // log errors if they happen
         .on('error', gutil.log.bind(gutil, 'Browserify Error'))
-        .pipe(source('iframe-embed.min.js'))
+        .pipe(source(dest))
         // optional, remove if you don't need to buffer file contents
         .pipe(buffer())
         // optional, remove if you dont want sourcemaps
