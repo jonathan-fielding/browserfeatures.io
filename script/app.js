@@ -8,6 +8,7 @@ fetch('//api.browserfeatures.io/v1/feature', {
     return response.json();
 }).then(function(json) {
     var selectBox = document.getElementById('embed-select');
+        var embedCode = document.getElementById('embed-code');
 
     json.features.forEach(function(feature){
     	var element=document.createElement('option');
@@ -18,9 +19,11 @@ fetch('//api.browserfeatures.io/v1/feature', {
         selectBox.appendChild(element);
     });
 
+    embedCode.value = embedTemplate.render({
+        selected: json.features[0]
+    });
+    
     selectBox.addEventListener('change', function(e){
-        var embedCode = document.getElementById('embed-code');
-
         embedCode.value = embedTemplate.render({
             selected: this.value
         });
