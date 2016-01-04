@@ -12,8 +12,16 @@ var babel = require('babelify');
 var hogan = require('browserify-hogan');
 var rfolderify = require('rfolderify');
 var closure = require('gulp-closure');
+var es = require('event-stream');
 
 module.exports = {
+    browserifyBundleEmbed: function(){
+        return browserifyBundle({
+            watch: false, 
+            src: './script/iframe-embed.js',
+            dest: 'iframe-embed.min.js'
+        });
+    },
     browserifyBundle: function(){
         return browserifyBundle(false)
     },
