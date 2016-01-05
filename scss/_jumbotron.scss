@@ -4,8 +4,10 @@
   background-color: $jumbotron-bg;
   @include border-radius($border-radius-lg);
 
-  @include media-breakpoint-up(sm) {
-    padding: ($jumbotron-padding * 2) $jumbotron-padding;
+  @media only screen and (max-width: 600px) {
+    .container {
+      padding: 0;
+    }
   }
 }
 
