@@ -460,12 +460,16 @@ h6 {
   font-weight: 300; }
 
 .display-3 {
-  font-size: 4.5rem;
+  font-size: 3.5rem;
   font-weight: 300; }
 
 .display-4 {
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: 300; }
+  @media only screen and (min-width: 768px) {
+    .display-4 {
+      font-size: 3.5rem;
+      font-weight: 300; } }
 
 hr {
   margin-top: 1rem;
@@ -2874,7 +2878,8 @@ input[type="button"].btn-block {
     clear: both; }
   @media (min-width: 544px) {
     .navbar {
-      border-radius: 0.25rem; } }
+      border-bottom-right-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem; } }
 
 .navbar-full {
   z-index: 1000; }

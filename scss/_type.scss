@@ -49,6 +49,11 @@ h6 { font-size: $font-size-h6; }
 .display-4 {
   font-size: $display4-size;
   font-weight: $display4-weight;
+
+  @media only screen and (min-width: 768px) {
+    font-size: $display3-size;
+    font-weight: $display3-weight;
+  }
 }
 
 
