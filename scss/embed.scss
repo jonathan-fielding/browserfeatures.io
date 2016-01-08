@@ -40,11 +40,12 @@
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
+	background: #aaa;
 
 	li {
 		float: left;
 		padding: 5px;
-		width: 11.1111%;
+		width: 33.333%;
 		text-align: center;
 
 		&:nth-child(even) {
@@ -67,6 +68,20 @@
 
 		img {
 			max-width: 100%;
+		}
+	}
+
+
+
+	@media only screen and (min-width: 320px) {
+		li {
+			width: 20%;
+		}
+	}
+
+	@media only screen and (min-width: 480px) {
+		li {
+			width: 11.1111%;
 		}
 	}
 }
