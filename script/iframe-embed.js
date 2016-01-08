@@ -18,9 +18,9 @@ if (feature) {
 
 if (window.parent) {
     setHeight();
-}
 
-eventer('resize', setHeight);
+    setInterval(setHeight, 100);
+}
 
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
