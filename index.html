@@ -13,6 +13,9 @@
                 <div class="container">
                     <ul class="nav navbar-nav pull-right">
                         <li class="nav-item">
+                            <a class="nav-link" href="#embed">Embed</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#api">API</a>
                         </li>
                     </ul>
@@ -23,9 +26,43 @@
         <section class="jumbotron">
             <div class="container">            
                 <h2 class="display-4">BrowserFeatures.io</h2>
-                <p class="lead">Community project to provide an API to enable you to include browser feature information in your webpages.</p>
+                <p class="lead">Browser feature compatability data in Embed and API form.</p>
             </div>
         </section>
+
+        <div class="container" id="embed">
+            <h2>Embed</h2>
+
+            <p>BrowserFeatures.io enables websites to embed browser feature information directly into their site. This is especially useful if you write blog posts about a new browser feature as it means you are able to include up to date information about which browsers have implemented that feature.</p>
+
+            <script>
+                (function(window,document,tag,id){return window[id]||(window[id]=1)&&(function(s){
+                        var element=document.createElement(tag);
+                        s=document.getElementsByTagName(tag)[0];
+                        element.async=1;
+                        element.src='/script/embed.js';
+                        s.parentNode.insertBefore(element,s);
+                    })();
+                })(window,document,'script','__bfEmbed__');
+            </script>
+            <a href="/iframe-embed.html?feature=border-radius" class="__bfEmbed__">border-radius information</a>
+        
+            <h3>Generate embed code</h3>
+
+            <p>To generate your own embed code please use the following form:</p>
+
+            <form>
+                <fieldset class="form-group">
+                    <select class="form-control" id="embed-select">
+                    </select>
+                </fieldset>
+                <fieldset class="form-group">
+                    <textarea class="form-control" rows="11" id="embed-code"></textarea>
+                </fieldset>
+            </form>
+        </div>
+
+        <hr>
 
         <div class="container" id="api">
             <h2>API</h2>
@@ -133,6 +170,7 @@
                <p>BrowserFeatures.io uses data licenced from <a href="http://www.caniuse.com">caniuse.com</a> under CC BY 4.0 license</p>
             </div>
         </footer>
+        <script src="script/app.min.js" async></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

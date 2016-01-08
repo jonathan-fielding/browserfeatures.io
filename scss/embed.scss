@@ -1,0 +1,87 @@
+// Core variables and mixins
+@import "variables";
+@import "mixins";
+
+// Reset and dependencies
+@import "normalize";
+
+* {
+	box-sizing: border-box;
+}
+
+.embed-header {
+	background: $gray-dark;
+	padding: 10px;
+
+	&__title {
+		margin: 0;
+		color: $gray-lightest;
+		font-size: 18px;
+	}
+}
+
+.embed-footer {
+	background: $gray-dark;
+	padding: 10px;
+	color: $gray-light;
+
+	p {
+		margin: 0;
+		font-size: 12px;
+	}
+
+	a {
+		color: $gray-light;
+	}
+}
+
+.supported-browsers {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	background: #aaa;
+
+	li {
+		float: left;
+		padding: 5px;
+		width: 33.333%;
+		text-align: center;
+
+		&:nth-child(even) {
+			background: #CCC
+		}
+
+		&:nth-child(odd) {
+			background: #999
+		}
+
+		h2 {
+			font-size: 16px;
+			margin: 0;
+			display: none;
+		}
+
+		p {
+			margin: 0;
+		}
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+
+
+	@media only screen and (min-width: 280px) {
+		li {
+			width: 20%;
+		}
+	}
+
+	@media only screen and (min-width: 440px) {
+		li {
+			width: 11.1111%;
+		}
+	}
+}
